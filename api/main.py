@@ -24,7 +24,7 @@ app.include_router(assignments.router)
 
 # --- Dashboard Stats (集計系なのでここに配置) ---
 
-@app.get("/stats")
+@app.get("/api/stats") # 显式包含 /api
 def get_stats(db: Session = Depends(database.get_db)):
     total_members = db.query(models.Member).count()
     active_members = db.query(models.Member).filter(models.Member.status == "稼働中").count()

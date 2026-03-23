@@ -24,9 +24,9 @@ app.add_middleware(
 )
 
 # 2. 路由集成
-app.include_router(members.router)
-app.include_router(projects.router)
-app.include_router(assignments.router)
+app.include_router(members.router, prefix="/api")
+app.include_router(projects.router, prefix="/api")
+app.include_router(assignments.router, prefix="/api")
 
 # 3. 统计接口 (Dashboard Stats)
 @app.get("/api/stats")

@@ -41,3 +41,6 @@ def get_stats(db: Session = Depends(database.get_db)):
         "total_projects": total_projects,
         "total_revenue_forecast": total_revenue
     }
+@app.get("/api/health")
+def health_check():
+    return {"status": "ok", "db_connected": engine is not None}
